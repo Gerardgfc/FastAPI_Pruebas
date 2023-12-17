@@ -13,9 +13,6 @@ def read_root():
 def read_root():
     return {'Hola' : 'Mundo!'}
 
-@app.get('/items/{item_id}')
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {'item_id': item_id, 'q': q}
 
 @app.get('/calculadora')
 def calcular(num1: int, num2: int):
@@ -26,8 +23,22 @@ def calcular(num1: int, num2: int):
 #POST = Crear
 
 
+@app.get('/items/{item_id}')
+def read_item(item_id: int, q: Union[str, None] = None):
+    """_summary_
+
+    Args:
+        item_id: Este objeto es de tipo int e indica que es obligatorio ya que no esta acompañado de None.
+        
+        q: En este caso el None indica que no es de caracter obligatorio y el none al que esta igualdo indica que por defecto el valor es None.
+
+    Returns:
+        El id (obligatorio) y el "q" que no es obligatorio.
+    """
+    return {'item_id': item_id, 'q': q}
+
+#Actualizacion de item_id
 @app.put('/items/{item_id}')
-#Creacion de modelo de datos
 def update_item(item_id: int, item: Item):
     """esta funcion retorna un producto con los datos que soliciten, se puede escalar para hacer que diga si un producto se encuntra en oferta o no
 
