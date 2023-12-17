@@ -1,7 +1,9 @@
 from typing import Union
 from fastapi import FastAPI
+from models.item_model import Item
 
 # Creacion de Aplicacion FastAPI
+app = FastAPI()
 
 @app.get('/')
 def read_root():
