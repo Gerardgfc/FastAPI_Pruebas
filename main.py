@@ -31,3 +31,20 @@ def calcular(num1: int, num2: int):
 #solicitud de tipo PUT
 #PUT = Actualizar
 #POST = Crear
+
+
+@app.put('/items/{item_id}')
+
+#Creacion de modelo de datos
+def update_item(item_id: int, item: Item):
+    """esta funcion retorna un producto con los datos que soliciten, se puede escalar para hacer que diga si un producto se encuntra en oferta o no
+
+    Args:
+        item_id (int): id del producto
+        
+        item (Item): nombre del producto
+
+    Returns:
+        _type_: retorna el nombre del producto y su id
+    """
+    return {'item_name': item.name, 'item_id': item_id,'item_price': item.price, 'item_offer': item.is_offer}
