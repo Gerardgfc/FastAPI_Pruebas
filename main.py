@@ -18,7 +18,6 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {'item_id': item_id, 'q': q}
 
 @app.get('/calculadora')
-
 def calcular(num1: int, num2: int):
     return {'suma': num1 + num2}
 
@@ -28,7 +27,6 @@ def calcular(num1: int, num2: int):
 
 
 @app.put('/items/{item_id}')
-
 #Creacion de modelo de datos
 def update_item(item_id: int, item: Item):
     """esta funcion retorna un producto con los datos que soliciten, se puede escalar para hacer que diga si un producto se encuntra en oferta o no
